@@ -9,10 +9,10 @@ func main() {
 	fmt.Println("Введите трехзначное  число: ")
 	fmt.Scan(&a)
 
-	fmt.Println("Еденицы: ", (a / 100))
+	fmt.Println("Сотни: ", (a / 100))
 
 	fmt.Println("Десятки: ", (a / 10))
 
-	fmt.Println("Сотни: ", (a / 1))
+	fmt.Println("Еденицы: ", (a / 1))
 
 }
