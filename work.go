@@ -8,26 +8,32 @@ import (
 )
 
 func main() {
-
-	fmt.Println("Enter numbers: ")
-
-	inputNums := []int{}
-	scanner := bufio.NewScanner(os.Stdin)
-	for scanner.Scan() {
-		_, err := strconv.ParseInt(scanner.Text(), 10, 64)
-		if err != nil {
+	
+	inputNums := []int64{}
+	 scanner := bufio.NewScanner(os.Stdin)
+	 for scanner.Scan() {
+		num, err := strconv.ParseInt(scanner.Text(), 10, 64)
+	 	if err != nil {
 			panic(err)
 		}
-		inputNums = append(inputNums)
+		inputNums = append(inputNums, num)
 	}
-	for i := 1; i < len(inputNums); i++ {
-		x := inputNums[i]
-		j := i
-		for ; j >= 1 && inputNums[j-1] > x; j-- {
-			inputNums[j] = inputNums[j-1]
-		}
-		inputNums[j] = x
-		fmt.Println(inputNums)
 
+}
+func sort(n []int) {
+
+	for i := 1; i < len(n); i++ {
+		key := n[i]
+		Is := i
+		for j := i - 1; j > -1; j-- {
+			if n[j] < key {
+				break
+			}
+			n[j+1] = n[j]
+			Is = j
+		}
+		n[Is] = key
+		
 	}
+	
 }
